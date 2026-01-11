@@ -10,104 +10,427 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- BRAND COLOR THEME --- */
+        /* --- BRAND COLOR THEME (PER SPECIFICATIONS) --- */
         :root {
+            /* Primary Colors */
             --deep-blue: #3B82F6;
             --vibrant-purple: #8B5CF6;
             --teal: #14B8A6;
+            
+            /* Accent Colors */
             --energetic-orange: #F97316;
             --soft-coral: #FB7185;
+            
+            /* Neutrals */
             --dark-navy: #1E293B;
             --soft-gray: #64748B;
             --light-bg: #F8FAFC;
             --white: #FFFFFF;
+
+            /* Gradients */
             --hero-gradient: linear-gradient(135deg, var(--deep-blue), var(--vibrant-purple));
             --section-gradient: linear-gradient(135deg, var(--teal), var(--deep-blue));
+            --card-gradient: linear-gradient(to bottom, var(--white), #f1f5f9);
+            
             --shadow: 0 10px 25px -5px rgba(30, 41, 59, 0.1);
             --radius: 12px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark-navy); background-color: var(--light-bg); line-height: 1.6; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--dark-navy); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        /* --- LOGIC: HIDING SECTIONS --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-navy);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-navy);
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--deep-blue);
+            color: var(--white);
+        }
+
+        .btn-cta {
+            background-color: var(--energetic-orange);
+            color: var(--white);
+            box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.39);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--deep-blue);
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--soft-gray);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: var(--hero-gradient);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* --- INFO CARDS --- */
+        .section-padding {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-gradient);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--vibrant-purple);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--teal);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-navy);
+        }
+
+        .card p {
+            color: var(--soft-gray);
+        }
+
+        /* --- CATEGORIES SECTION --- */
+        .categories {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .cat-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--white);
+            border: 1px solid var(--deep-blue);
+            color: var(--deep-blue);
+            border-radius: 50px;
+            margin: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline-container {
+            border-left: 4px solid var(--teal);
+            padding-left: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--white);
+            border: 3px solid var(--teal);
+            border-radius: 50%;
+        }
+
+        /* --- FAQ --- */
+        .faq-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--white);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
+
+        summary {
+            font-weight: 700;
+            color: var(--dark-navy);
+        }
+
+        details p {
+            margin-top: 10px;
+            color: var(--soft-gray);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-cta {
+            background: var(--section-gradient);
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            color: var(--white);
+        }
+
+        .footer-cta h2 { color: var(--white); margin-bottom: 20px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+
+        /* --- REGISTRATION LOGIC STYLES --- */
         .page-content { display: none; }
         .page-content.active { display: block; }
 
-        /* --- BUTTONS --- */
-        .btn { display: inline-block; padding: 14px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
-        .btn-primary { background-color: var(--deep-blue); color: var(--white); }
-        .btn-cta { background-color: var(--energetic-orange); color: var(--white); box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.39); }
-        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .form-card {
+            max-width: 700px;
+            margin: 40px auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+        }
 
-        /* --- HEADER --- */
-        header { background: var(--white); padding: 20px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--deep-blue); cursor: pointer; }
-
-        /* --- HERO & LANDING SECTIONS --- */
-        .hero { background: var(--hero-gradient); color: var(--white); padding: 100px 20px; text-align: center; }
-        .hero h1 { color: var(--white); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
-        .section-padding { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
-        .cat-tag { display: inline-block; padding: 8px 16px; background: var(--white); border: 1px solid var(--deep-blue); color: var(--deep-blue); border-radius: 50px; margin: 5px; font-weight: 600; font-size: 0.9rem; }
-
-        /* --- REGISTRATION FORM STYLES --- */
-        .form-container { max-width: 700px; margin: 60px auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; }
-        .checkbox-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; text-align: left; }
-        .checkbox-item input { margin-top: 6px; }
-
-        /* --- FOOTER --- */
-        footer { background-color: var(--dark-navy); color: var(--white); padding: 60px 20px; text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit;
+        }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-top: 15px; }
+        .checkbox-group input { margin-top: 5px; }
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo" onclick="navigateTo('landing-page')">🚀 INNOVATE<span style="color:var(--vibrant-purple)">START</span></div>
-            <button class="btn btn-primary" style="padding: 10px 20px;" onclick="navigateTo('registration-page')">Register Now</button>
+            <div class="logo" onclick="showPage('main-page')">🚀 INNOVATE<span style="color:var(--vibrant-purple)">START</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#categories">Industries</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><button onclick="showPage('registration-page')" class="btn btn-primary" style="padding: 10px 20px;">Register</button></li>
+            </ul>
         </nav>
     </header>
 
-    <div id="landing-page" class="page-content active">
+    <div id="main-page" class="page-content active">
         <section class="hero">
             <h1>Turn Your Ideas Into the<br>Startups of Tomorrow</h1>
             <p>Join an online hackathon where secondary school students create innovative startup ideas that solve real-world problems.</p>
-            <button onclick="navigateTo('registration-page')" class="btn btn-cta">Register Online</button>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="showPage('registration-page')" class="btn btn-cta">Register Online</button>
+                <a href="#how-it-works" class="btn btn-primary" style="background-color: transparent; border: 2px solid white;">How It Works</a>
+            </div>
+            <p style="margin-top: 25px; font-size: 0.9rem; font-weight: 500;">
+                <span style="color: var(--teal)">●</span> 100% Online &nbsp; 
+                <span style="color: var(--soft-coral)">●</span> Open to Beginners &nbsp; 
+                <span style="color: var(--energetic-orange)">●</span> Ages 13-18
+            </p>
         </section>
 
-        <section class="section-padding">
-            <h2 style="text-align: center;">Who Can Participate?</h2>
+        <section id="about" class="section-padding">
+            <h2 style="text-align: center; margin-bottom: 10px;">Who Can Participate?</h2>
+            <p style="text-align: center; color: var(--soft-gray); margin-bottom: 40px;">No coding or business experience required—just curiosity.</p>
+            
             <div class="grid">
-                <div class="card"><h3>Students</h3><p>Secondary school students aged 13–18 from any background.</p></div>
-                <div class="card"><h3>Beginners</h3><p>First-time participants are welcome. No coding needed.</p></div>
-                <div class="card"><h3>Solo or Team</h3><p>Join individually or bring your friends.</p></div>
+                <div class="card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Students</h3>
+                    <p>Secondary school students aged 13–18 from any academic background.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Beginners</h3>
+                    <p>First-time participants are welcome. We provide all the guidance you need.</p>
+                </div>
+                <div class="card" style="border-bottom: 4px solid var(--soft-coral);">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Solo or Team</h3>
+                    <p>Join individually and meet others, or bring your own team of friends.</p>
+                </div>
             </div>
         </section>
 
-        <section class="section-padding" style="background-color: #f1f5f9; text-align: center;">
-            <h2>Innovation Across All Fields</h2><br>
-            <span class="cat-tag">Technology</span> <span class="cat-tag">Health</span> <span class="cat-tag">Education</span> <span class="cat-tag">Environment</span>
-            <span class="cat-tag">Business</span> <span class="cat-tag">Creative Industries</span> <span class="cat-tag">Social Impact</span>
+        <section id="categories" class="section-padding" style="background-color: #f1f5f9;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Innovation Across All Fields</h2>
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <span class="cat-tag">Technology</span>
+                <span class="cat-tag">Health & Well-being</span>
+                <span class="cat-tag">Education</span>
+                <span class="cat-tag">Environment</span>
+                <span class="cat-tag">Agriculture</span>
+                <span class="cat-tag">Business & Finance</span>
+                <span class="cat-tag">Creative Industries</span>
+                <span class="cat-tag">Social Impact</span>
+            </div>
         </section>
+
+        <section id="how-it-works" class="section-padding">
+            <h2 style="text-align: center; margin-bottom: 40px;">How It Works</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <h3>1. Register Online</h3>
+                    <p>Sign up solo or with friends to secure your spot.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2. Kickoff & Brainstorm</h3>
+                    <p>Learn the rules and start developing your startup idea.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>3. Mentor Sessions</h3>
+                    <p>Get guidance from entrepreneurs and industry professionals.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>4. Final Pitch</h3>
+                    <p>Present your idea online to our panel of judges.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section-padding">
+            <h2 style="text-align: center; margin-bottom: 40px;">Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <details>
+                    <summary>Do I need a startup idea before joining?</summary>
+                    <p>No. You can develop your idea during the kickoff phase of the hackathon.</p>
+                </details>
+                <details>
+                    <summary>Can I join without a team?</summary>
+                    <p>Yes! You can join solo or form a team during the event networking session.</p>
+                </details>
+                <details>
+                    <summary>Is this event fully online?</summary>
+                    <p>Yes, you can participate from anywhere in the world with an internet connection.</p>
+                </details>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div class="footer-cta">
+                    <h2>Ready to create and inspire?</h2>
+                    <p>Join the Online Startup & Innovation Hackathon today.</p>
+                    <br>
+                    <button onclick="showPage('registration-page')" class="btn btn-cta">Register Now</button>
+                </div>
+                <p style="color: var(--soft-gray); font-size: 0.9rem;">&copy; 2026 Startup Hackathon for Students. Built for the innovators of tomorrow.</p>
+            </div>
+        </footer>
     </div>
 
     <div id="registration-page" class="page-content">
-        <div class="section-padding" style="text-align: center;">
-            <h1>Register for the Online Startup & Innovation Hackathon</h1>
-            <p>Open to secondary school students worldwide. No experience required.</p>
-            
-            <div class="form-container">
-                <p style="margin-bottom: 25px; color: var(--soft-gray);">Please complete the form below to secure your spot. You may register individually or as a team.</p>
+        <section class="section-padding" style="text-align: center;">
+            <h1 style="margin-bottom: 10px;">Register for the Online Startup & Innovation Hackathon</h1>
+            <p style="color: var(--soft-gray);">Open to secondary school students worldwide. No experience required.</p>
+
+            <div class="form-card">
+                <p style="margin-bottom: 25px; font-weight: 500;">Please complete the form below to secure your spot. You may register individually or as a team. All participation is online.</p>
                 
-                <form id="hackathonForm">
+                <form id="regForm">
                     <div class="form-group"><label>Student Full Name</label><input type="text" required></div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                         <div class="form-group"><label>Age</label><input type="number" min="13" max="18" required></div>
@@ -125,57 +448,49 @@
                             <option>I would like to be matched with a team</option>
                         </select>
                     </div>
-
                     <div class="form-group"><label>Team Name (optional)</label><input type="text"></div>
-                    
                     <div class="form-group">
                         <label>Area of Interest (optional)</label>
                         <select>
-                            <option value="">Select a field...</option>
+                            <option value="">Select interest...</option>
                             <option>Technology</option><option>Health</option><option>Education</option>
                             <option>Environment</option><option>Business</option><option>Creative Industries</option>
                             <option>Social Impact</option>
                         </select>
                     </div>
 
-                    <div class="checkbox-item"><input type="checkbox" required id="c1"><label for="c1">Parent/Guardian Consent</label></div>
-                    <div class="checkbox-item"><input type="checkbox" required id="c2"><label for="c2">Agreement to Code of Conduct</label></div>
+                    <div class="checkbox-group"><input type="checkbox" required id="c1"><label for="c1">Parent/Guardian Consent</label></div>
+                    <div class="checkbox-group"><input type="checkbox" required id="c2"><label for="c2">Agreement to Code of Conduct</label></div>
 
-                    <button type="submit" class="btn btn-cta" style="width: 100%; margin-top: 20px;">Complete Registration</button>
+                    <button type="submit" class="btn btn-cta" style="width: 100%; margin-top: 30px;">Complete Registration</button>
                 </form>
             </div>
-        </div>
+        </section>
     </div>
 
     <div id="confirmation-page" class="page-content">
-        <div class="section-padding" style="text-align: center;">
-            <div class="form-container">
+        <section class="section-padding" style="text-align: center;">
+            <div class="form-card" style="text-align: center;">
                 <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--teal); margin-bottom: 20px;"></i>
                 <h2>Thank you for registering!</h2>
                 <p>You’re officially signed up for the Online Startup & Innovation Hackathon.</p>
-                <p style="margin-top: 15px; color: var(--soft-gray);">More details, schedules, and event links will be sent to your email soon.</p>
+                <p style="margin-top: 20px; color: var(--soft-gray); font-size: 0.95rem;">More details, schedules, and event links will be sent to your email soon.</p>
                 <br>
-                <button onclick="navigateTo('landing-page')" class="btn btn-primary">Back to Home</button>
+                <button onclick="showPage('main-page')" class="btn btn-primary">Back to Home</button>
             </div>
-        </div>
+        </section>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Startup Hackathon. Built for the innovators of tomorrow.</p>
-    </footer>
-
     <script>
-        // Function to switch visible sections
-        function navigateTo(id) {
-            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
             window.scrollTo(0,0);
         }
 
-        // Handle Form Submit
-        document.getElementById('hackathonForm').onsubmit = function(e) {
+        document.getElementById('regForm').onsubmit = function(e) {
             e.preventDefault();
-            navigateTo('confirmation-page');
+            showPage('confirmation-page');
         };
     </script>
 </body>

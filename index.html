@@ -22,215 +22,161 @@
             --light-bg: #F8FAFC;
             --white: #FFFFFF;
             --hero-gradient: linear-gradient(135deg, var(--deep-blue), var(--vibrant-purple));
+            --section-gradient: linear-gradient(135deg, var(--teal), var(--deep-blue));
             --shadow: 0 10px 25px -5px rgba(30, 41, 59, 0.1);
             --radius: 12px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--dark-navy); background-color: var(--light-bg); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--dark-navy); }
 
-        /* --- VISIBILITY CONTROL --- */
-        .page-section { display: none; }
-        .page-section.active { display: block; }
+        /* --- LOGIC: HIDING SECTIONS --- */
+        .page-content { display: none; }
+        .page-content.active { display: block; }
 
-        /* --- UI ELEMENTS --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* --- BUTTONS --- */
         .btn { display: inline-block; padding: 14px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
         .btn-primary { background-color: var(--deep-blue); color: var(--white); }
-        .btn-cta { background-color: var(--energetic-orange); color: var(--white); }
+        .btn-cta { background-color: var(--energetic-orange); color: var(--white); box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.39); }
         .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
         /* --- HEADER --- */
-        header { background: var(--white); padding: 20px 0; border-bottom: 1px solid #e2e8f0; sticky; top: 0; z-index: 1000; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
+        header { background: var(--white); padding: 20px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .logo { font-weight: 800; font-size: 1.5rem; color: var(--deep-blue); cursor: pointer; }
-        
-        /* --- LANDING PAGE STYLES --- */
-        .hero { background: var(--hero-gradient); color: var(--white); padding: 100px 20px; text-align: center; }
-        .hero h1 { color: var(--white); font-size: 3rem; margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 80px 0; }
-        .card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
-        
-        /* --- REGISTRATION FORM STYLES --- */
-        .registration-container { max-width: 700px; margin: 60px auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
-        .form-header { text-align: center; margin-bottom: 30px; }
-        .form-header h1 { color: var(--deep-blue); font-size: 1.8rem; margin-bottom: 10px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
-        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin-top: 15px; }
-        .checkbox-group input { margin-top: 5px; }
-        
-        /* --- SUCCESS MESSAGE --- */
-        #success-message { text-align: center; padding: 60px 20px; }
-        .success-icon { font-size: 4rem; color: var(--teal); margin-bottom: 20px; }
 
-        footer { background: var(--dark-navy); color: var(--white); padding: 40px 0; text-align: center; margin-top: 60px; }
+        /* --- HERO & LANDING SECTIONS --- */
+        .hero { background: var(--hero-gradient); color: var(--white); padding: 100px 20px; text-align: center; }
+        .hero h1 { color: var(--white); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
+        .section-padding { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
+        .cat-tag { display: inline-block; padding: 8px 16px; background: var(--white); border: 1px solid var(--deep-blue); color: var(--deep-blue); border-radius: 50px; margin: 5px; font-weight: 600; font-size: 0.9rem; }
+
+        /* --- REGISTRATION FORM STYLES --- */
+        .form-container { max-width: 700px; margin: 60px auto; background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; }
+        .checkbox-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; text-align: left; }
+        .checkbox-item input { margin-top: 6px; }
+
+        /* --- FOOTER --- */
+        footer { background-color: var(--dark-navy); color: var(--white); padding: 60px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo" onclick="showPage('landing-page')">🚀 INNOVATE<span style="color:var(--vibrant-purple)">HACK</span></div>
-                <button class="btn btn-primary" onclick="showPage('registration-page')">Register Now</button>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo" onclick="navigateTo('landing-page')">🚀 INNOVATE<span style="color:var(--vibrant-purple)">START</span></div>
+            <button class="btn btn-primary" style="padding: 10px 20px;" onclick="navigateTo('registration-page')">Register Now</button>
+        </nav>
     </header>
 
-    <main id="landing-page" class="page-section active">
+    <div id="landing-page" class="page-content active">
         <section class="hero">
-            <div class="container">
-                <h1>Turn Your Ideas Into the Startups of Tomorrow</h1>
-                <p>An online hackathon for secondary school students to solve real-world problems.</p>
-                <br>
-                <button class="btn btn-cta" onclick="showPage('registration-page')">Register Online</button>
-            </div>
+            <h1>Turn Your Ideas Into the<br>Startups of Tomorrow</h1>
+            <p>Join an online hackathon where secondary school students create innovative startup ideas that solve real-world problems.</p>
+            <button onclick="navigateTo('registration-page')" class="btn btn-cta">Register Online</button>
         </section>
 
-        <section class="container">
+        <section class="section-padding">
+            <h2 style="text-align: center;">Who Can Participate?</h2>
             <div class="grid">
-                <div class="card">
-                    <i class="fas fa-globe" style="color:var(--teal); font-size: 2rem; margin-bottom: 15px;"></i>
-                    <h3>100% Online</h3>
-                    <p>Join from anywhere in the world using your laptop or tablet.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-lightbulb" style="color:var(--vibrant-purple); font-size: 2rem; margin-bottom: 15px;"></i>
-                    <h3>No Experience</h3>
-                    <p>Beginners welcome! Learn how to build a startup from scratch.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-user-check" style="color:var(--energetic-orange); font-size: 2rem; margin-bottom: 15px;"></i>
-                    <h3>Ages 13-18</h3>
-                    <p>Designed specifically for secondary school students.</p>
-                </div>
+                <div class="card"><h3>Students</h3><p>Secondary school students aged 13–18 from any background.</p></div>
+                <div class="card"><h3>Beginners</h3><p>First-time participants are welcome. No coding needed.</p></div>
+                <div class="card"><h3>Solo or Team</h3><p>Join individually or bring your friends.</p></div>
             </div>
         </section>
-    </main>
 
-    <main id="registration-page" class="page-section">
-        <div class="container">
-            <div class="registration-container">
-                <div class="form-header">
-                    <h1>Register for the Hackathon</h1>
-                    <p>Please complete the form below to secure your spot.</p>
-                </div>
+        <section class="section-padding" style="background-color: #f1f5f9; text-align: center;">
+            <h2>Innovation Across All Fields</h2><br>
+            <span class="cat-tag">Technology</span> <span class="cat-tag">Health</span> <span class="cat-tag">Education</span> <span class="cat-tag">Environment</span>
+            <span class="cat-tag">Business</span> <span class="cat-tag">Creative Industries</span> <span class="cat-tag">Social Impact</span>
+        </section>
+    </div>
 
+    <div id="registration-page" class="page-content">
+        <div class="section-padding" style="text-align: center;">
+            <h1>Register for the Online Startup & Innovation Hackathon</h1>
+            <p>Open to secondary school students worldwide. No experience required.</p>
+            
+            <div class="form-container">
+                <p style="margin-bottom: 25px; color: var(--soft-gray);">Please complete the form below to secure your spot. You may register individually or as a team.</p>
+                
                 <form id="hackathonForm">
-                    <div class="form-group">
-                        <label>Student Full Name</label>
-                        <input type="text" required placeholder="Enter your full name">
+                    <div class="form-group"><label>Student Full Name</label><input type="text" required></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group"><label>Age</label><input type="number" min="13" max="18" required></div>
+                        <div class="form-group"><label>Country</label><input type="text" required></div>
                     </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Age</label>
-                            <input type="number" required min="13" max="18">
-                        </div>
-                        <div class="form-group">
-                            <label>Country</label>
-                            <input type="text" required placeholder="Your country">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>School Name</label>
-                        <input type="text" required placeholder="Name of your school">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" required placeholder="email@example.com">
-                    </div>
-
+                    <div class="form-group"><label>School Name</label><input type="text" required></div>
+                    <div class="form-group"><label>Email Address</label><input type="email" required></div>
+                    
                     <div class="form-group">
                         <label>Team Option</label>
                         <select required>
-                            <option value="">Select an option</option>
+                            <option value="">Select option...</option>
                             <option>I am joining solo</option>
                             <option>I already have a team</option>
                             <option>I would like to be matched with a team</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label>Team Name (optional)</label>
-                        <input type="text" placeholder="Enter team name if applicable">
-                    </div>
-
+                    <div class="form-group"><label>Team Name (optional)</label><input type="text"></div>
+                    
                     <div class="form-group">
                         <label>Area of Interest (optional)</label>
                         <select>
-                            <option value="">Select a field</option>
-                            <option>Technology</option>
-                            <option>Health</option>
-                            <option>Education</option>
-                            <option>Environment</option>
-                            <option>Business</option>
-                            <option>Creative Industries</option>
+                            <option value="">Select a field...</option>
+                            <option>Technology</option><option>Health</option><option>Education</option>
+                            <option>Environment</option><option>Business</option><option>Creative Industries</option>
                             <option>Social Impact</option>
                         </select>
                     </div>
 
-                    <div class="checkbox-group">
-                        <input type="checkbox" required id="consent">
-                        <label for="consent">I have Parent/Guardian Consent to participate.</label>
-                    </div>
+                    <div class="checkbox-item"><input type="checkbox" required id="c1"><label for="c1">Parent/Guardian Consent</label></div>
+                    <div class="checkbox-item"><input type="checkbox" required id="c2"><label for="c2">Agreement to Code of Conduct</label></div>
 
-                    <div class="checkbox-group">
-                        <input type="checkbox" required id="conduct">
-                        <label for="conduct">I agree to the Code of Conduct.</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-cta" style="width: 100%; margin-top: 30px;">Complete Registration</button>
+                    <button type="submit" class="btn btn-cta" style="width: 100%; margin-top: 20px;">Complete Registration</button>
                 </form>
             </div>
         </div>
-    </main>
+    </div>
 
-    <main id="confirmation-page" class="page-section">
-        <div class="container">
-            <div id="success-message" class="registration-container">
-                <i class="fas fa-check-circle success-icon"></i>
-                <h1>Thank you for registering!</h1>
+    <div id="confirmation-page" class="page-content">
+        <div class="section-padding" style="text-align: center;">
+            <div class="form-container">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--teal); margin-bottom: 20px;"></i>
+                <h2>Thank you for registering!</h2>
                 <p>You’re officially signed up for the Online Startup & Innovation Hackathon.</p>
-                <p style="margin-top: 20px; color: var(--soft-gray);">More details, schedules, and event links will be sent to your email soon.</p>
+                <p style="margin-top: 15px; color: var(--soft-gray);">More details, schedules, and event links will be sent to your email soon.</p>
                 <br>
-                <button class="btn btn-primary" onclick="showPage('landing-page')">Back to Home</button>
+                <button onclick="navigateTo('landing-page')" class="btn btn-primary">Back to Home</button>
             </div>
         </div>
-    </main>
+    </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Online Startup & Innovation Hackathon</p>
-        </div>
+        <p>&copy; 2026 Startup Hackathon. Built for the innovators of tomorrow.</p>
     </footer>
 
     <script>
-        // Simple Function to switch between "Pages"
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show the requested page
-            document.getElementById(pageId).classList.add('active');
-            // Scroll to top
-            window.scrollTo(0, 0);
+        // Function to switch visible sections
+        function navigateTo(id) {
+            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
         }
 
-        // Handle Form Submission
-        document.getElementById('hackathonForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevents page from refreshing
-            
-            // In a real website, you would send data to a server here.
-            // For now, we just show the success page.
-            showPage('confirmation-page');
-        });
+        // Handle Form Submit
+        document.getElementById('hackathonForm').onsubmit = function(e) {
+            e.preventDefault();
+            navigateTo('confirmation-page');
+        };
     </script>
 </body>
 </html>

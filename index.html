@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Startup & Innovation Hackathon | innovateKGL</title>
+    <meta name="description"
+        content="Join innovateKGL - an online hackathon in Kigali where secondary school students create innovative startup ideas that solve real-world problems across all industries.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    innovate<span class="logo-accent">KGL</span>
+                </div>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#fields" class="nav-link">Categories</a></li>
+                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><button class="btn btn-primary btn-nav">Register Now</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge animate-float">
+                    <i class="fas fa-rocket"></i>
+                    <span>2024 Innovation Challenge</span>
+                </div>
+                <h1 class="hero-title">
+                    Turn Your Ideas Into the
+                    <span class="gradient-text">Startups of Tomorrow</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Join an online hackathon where secondary school students create innovative startup ideas that solve
+                    real-world problems across all industries.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-large">
+                        <span>Register Online</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary btn-large">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Watch Video</span>
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>100% Online</h3>
+                            <p>Join from anywhere</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Ages 13–18</h3>
+                            <p>All students welcome</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>No Experience</h3>
+                            <p>Beginners encouraged</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">About The Hackathon</span>
+                <h2 class="section-title">Think Big. Build the Future.</h2>
+                <p class="section-subtitle">A creative innovation challenge designed for students who want to change the
+                    world.</p>
+            </div>
+
+            <div class="about-content">
+                <p class="about-text">
+                    Participants will work individually or in teams to develop startup ideas that address real
+                    challenges.
+                    No coding or business experience is required—just curiosity, creativity, and a willingness to learn.
+                </p>
+            </div>
+
+            <div class="participant-grid">
+                <div class="glass-card card-hover">
+                    <div class="card-icon gradient-purple">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Ages 13–18</h3>
+                    <p>Open to all secondary school students worldwide.</p>
+                    <div class="card-shine"></div>
+                </div>
+                <div class="glass-card card-hover">
+                    <div class="card-icon gradient-green">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Beginners Welcome</h3>
+                    <p>First-time innovators welcome. No experience needed.</p>
+                    <div class="card-shine"></div>
+                </div>
+                <div class="glass-card card-hover">
+                    <div class="card-icon gradient-blue">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>All Backgrounds</h3>
+                    <p>Arts, Science, Commerce—everyone has a role.</p>
+                    <div class="card-shine"></div>
+                </div>
+                <div class="glass-card card-hover">
+                    <div class="card-icon gradient-orange">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Solo or Team</h3>
+                    <p>Join individually or form a squad with friends.</p>
+                    <div class="card-shine"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Fields Section -->
+    <section id="fields" class="section-padding section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Innovation Categories</span>
+                <h2 class="section-title">Innovation Across All Fields</h2>
+                <p class="section-subtitle">Your startup idea can focus on any industry. Creativity matters most.</p>
+            </div>
+
+            <div class="fields-grid">
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4>Tech & Digital</h4>
+                    <p>Software, apps, and digital solutions</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4>Health & Well-being</h4>
+                    <p>Healthcare innovation and wellness</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Education</h4>
+                    <p>Learning tools and educational tech</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Environment</h4>
+                    <p>Sustainability and green solutions</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h4>Agriculture</h4>
+                    <p>Farming and food technology</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4>Business & Finance</h4>
+                    <p>Fintech and business solutions</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4>Creative Arts</h4>
+                    <p>Design, media, and entertainment</p>
+                    <div class="field-glow"></div>
+                </div>
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4>Social Impact</h4>
+                    <p>Community and social change</p>
+                    <div class="field-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">The Process</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Four simple steps to launch your startup idea</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="step-item">
+                    <div class="step-marker">
+                        <span class="step-number">01</span>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon gradient-purple">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Register Online</h3>
+                        <p>Sign up individually or with friends. Create your account and join the innovation community.
+                        </p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-marker">
+                        <span class="step-number">02</span>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon gradient-blue">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Kickoff Session</h3>
+                        <p>Learn the rules, themes, and judging criteria. Get inspired and meet your mentors.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-marker">
+                        <span class="step-number">03</span>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon gradient-green">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Idea Development</h3>
+                        <p>Brainstorm, research, and build your startup idea with mentor support and resources.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-marker">
+                        <span class="step-number">04</span>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content glass-card">
+                        <div class="step-icon gradient-orange">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Final Pitch</h3>
+                        <p>Present your idea online to judges and win awards. Showcase your innovation to the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors & Prizes Section -->
+    <section class="section-padding section-dark">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-box glass-card">
+                    <div class="split-icon gradient-purple">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Mentors & Judges</h3>
+                    <p>You won't be alone! Participants will be supported by:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Entrepreneurs & Founders</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Industry Professionals</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Educators & Experts</span>
+                        </li>
+                    </ul>
+                    <div class="info-badge">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Mentors are there to guide, encourage, and help you improve.</span>
+                    </div>
+                </div>
+
+                <div class="split-box glass-card">
+                    <div class="split-icon gradient-orange">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Prizes & Recognition</h3>
+                    <p>Winning is great—but learning matters most.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-star"></i>
+                            <span>Awards for Innovation & Impact</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-certificate"></i>
+                            <span>Digital Certificates for All</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-award"></i>
+                            <span>Special Recognition & Prizes</span>
+                        </li>
+                    </ul>
+                    <div class="info-badge">
+                        <i class="fas fa-gift"></i>
+                        <span>Every participant receives recognition for their effort and creativity.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Got Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about the hackathon</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span>Do I need a startup idea before joining?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. You can develop your idea during the hackathon! We will have brainstorming sessions to
+                            help you discover problems worth solving and develop innovative solutions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span>Do I need coding or business experience?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. This event is beginner-friendly. All you need is creativity and a willingness to learn.
+                            We'll provide resources and mentorship to help you succeed.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span>Can I join without a team?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! You can register solo and we can help you find teammates, or you can work on your idea
+                            alone. Both options are completely valid.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span>Is the event fully online?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. All activities, sessions, and pitching will happen online. You can participate from
+                            anywhere in the world with an internet connection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question">
+                        <span>What do I need to participate?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Just a computer or mobile device with internet access, and your creativity! All tools and
+                            resources will be provided online.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2>Ready to Create & Inspire?</h2>
+                <p>Join hundreds of students worldwide in building the future</p>
+                <button class="btn btn-primary btn-large">
+                    <span>Join The Hackathon</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">⚡</span>
+                        innovate<span class="logo-accent">KGL</span>
+                    </div>
+                    <p>Empowering the next generation of innovators and entrepreneurs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#fields">Categories</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Guidelines</a></li>
+                            <li><a href="#">Mentors</a></li>
+                            <li><a href="#">Prizes</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:hello@innovatekgl.com">hello@innovatekgl.com</a></li>
+                            <li><a href="#">Join Discord</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 innovateKGL. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="registration-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2>Join innovateKGL</h2>
+                <p>Register for the 2024 Innovation Challenge</p>
+            </div>
+
+            <form id="registration-form" class="registration-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-row form-row-2">
+                    <div class="form-group">
+                        <label for="age">Age <span class="required">*</span></label>
+                        <input type="number" id="age" name="age" min="13" max="18" required placeholder="13-18">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="school">School Name <span class="required">*</span></label>
+                        <input type="text" id="school" name="school" required placeholder="Your school">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country <span class="required">*</span></label>
+                        <input type="text" id="country" name="country" required placeholder="Your country">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Team Preference <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="teamPreference" value="solo" checked>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Solo - I'll work alone</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="teamPreference" value="team">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Team - I have/want a team</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="team-name-group" style="display: none;">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" id="teamName" name="teamName" placeholder="Enter your team name">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Innovation Category <span class="required">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="tech">Tech & Digital</option>
+                        <option value="health">Health & Well-being</option>
+                        <option value="education">Education</option>
+                        <option value="environment">Environment</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="business">Business & Finance</option>
+                        <option value="creative">Creative Arts</option>
+                        <option value="social">Social Impact</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments</label>
+                    <textarea id="comments" name="comments" rows="4"
+                        placeholder="Tell us about your idea or any questions you have (optional)"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large btn-submit">
+                        <span class="btn-text">Register Now</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="form-message" id="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
